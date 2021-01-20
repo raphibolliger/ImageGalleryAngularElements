@@ -1,48 +1,59 @@
 <div class="gallery-wrapper">
+  <div class="gallery-loading" *ngIf="galleryLoading">
+    <div class="loader"></div>
+    <p>Die Fotogalerie wird geladen...</p>
+  </div>
 
-    <div class="gallery-loading" *ngIf="galleryLoading">
-        <div class="loader"></div>
-        <p>Die Fotogalerie wird geladen...</p>
-    </div>
+  <div class="gallery-error" *ngIf="showGalleryError">
+    <fa-icon [icon]="faError"></fa-icon>
+    <p>Die Fotogalerie konnte nicht geladen werden.</p>
+  </div>
 
-    <div class="gallery-error" *ngIf="showGalleryError">
-        <fa-icon [icon]="faError"></fa-icon>
-        <p>Die Fotogalerie konnte nicht geladen werden.</p>
-    </div>
-
-    <div class="gallery-auth" *ngIf="showPasswordForm">
-        <p>Die Fotogalerie ist geschützt und kann nur mit einem Passwort angezeigt werden. Bitte geben Sie das entsprechende Passwort ein.</p>
-        <input #galleryPassword type="password" />
-        <p style="color: red;" *ngIf="showWrongPasswordError">Ungültiges Passwort. Bitte versuchen Sie es erneut.</p>
-        <button (click)="loadImages(galleryPassword.value)" [disabled]="!galleryPassword.value">Fotos anzeigen</button>
-    </div>
-
-    <div class="gallery" *ngIf="images.length > 0">
-        <img *ngFor="let image of images" [src]="image.ThubnailUrl" (click)="open(image)" (error)="onImageLoadError($event)">
-    </div>
-
+  <div class="gallery" *ngIf="images?.length > 0">
+    <img
+      *ngFor="let image of images"
+      [src]="image.thubnailUrl"
+      (click)="open(image)"
+      (error)="onImageLoadError($event)"
+    />
+  </div>
 </div>
 
 <div class="slider" *ngIf="sliderActive">
-
-    <div class="slider-wrapper">
-
-        <div class="slider-controls">
-            <div (click)="close()" class="item close"><fa-icon [icon]="faTimes"></fa-icon></div>
-            <div (click)="previous()" class="item prev"><fa-icon [icon]="faChevronLeft"></fa-icon></div>
-            <div (click)="next()" class="item next"><fa-icon [icon]="faChevronRight"></fa-icon></div>
-        </div>
-
-        <div class="image-wrapper">
-            <div class="image-loader" *ngIf="imageLoading">
-                <fa-icon [icon]="faSpinner" size="xl" [spin]="true"></fa-icon>
-            </div>
-            <img [src]="activeImage.ImageUrl" [ngClass]="{'loading': imageLoading}" alt="Das Bild konnte nicht geladen werden." (load)="onImageLoaded()" />
-        </div>
+  <div class="slider-wrapper">
+    <div class="slider-controls">
+      <div (click)="close()" class="item close">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </div>
+      <div (click)="previous()" class="item prev">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </div>
+      <div (click)="next()" class="item next">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </div>
     </div>
 
-    <div #thumbslider class="thubnails">
-        <img #thumbnail id="thumbnail-{{image.Id}}" *ngFor="let image of images" [src]="image.ThubnailUrl" (click)="select(image)" [ngClass]="{'active': activeImage.Id === image.Id}" />
+    <div class="image-wrapper">
+      <div class="image-loader" *ngIf="imageLoading">
+        <fa-icon [icon]="faSpinner" size="xl" [spin]="true"></fa-icon>
+      </div>
+      <img
+        [src]="activeImage.imageUrl"
+        [ngClass]="{ loading: imageLoading }"
+        alt="Das Bild konnte nicht geladen werden."
+        (load)="onImageLoaded()"
+      />
     </div>
+  </div>
 
+  <div #thumbslider class="thubnails">
+    <img
+      #thumbnail
+      id="thumbnail-{{ image.id }}"
+      *ngFor="let image of images"
+      [src]="image.thubnailUrl"
+      (click)="select(image)"
+      [ngClass]="{ active: activeImage.id === image.id }"
+    />
+  </div>
 </div>
