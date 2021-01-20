@@ -122,23 +122,23 @@ div.gallery-wrapper {
   }
 
   div.gallery {
-    column-count: 7;
+    column-count: 4;
     gap: 0.25em;
   
     @include breakpoint('xl') {
-      column-count: 6;
+      column-count: 4;
     }
   
     @include breakpoint('l') {
-      column-count: 5;
+      column-count: 3;
     }
   
     @include breakpoint('m') {
-      column-count: 4;
+      column-count: 3;
     }
     
     @include breakpoint('s') {
-      column-count: 3;
+      column-count: 2;
     }
     
     @include breakpoint('xs') {
@@ -208,7 +208,7 @@ div.slider {
         transition: all 0.4s;
       }
 
-      .close {
+      .ig-close {
         right: 0;
         position: absolute;
       }

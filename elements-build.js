@@ -11,7 +11,7 @@ const concat = require('concat');
 
   await fs.ensureDir('./dist/elements');
   await fs.emptyDir('./dist/elements');
-  await concat(files, './dist/elements/alphavideolib.js');
+  await concat(files, './dist/elements/imagegallery.js');
   await fs.copyFile(
     './dist/AlphaVideoFrontendComponents/styles.css',
     './dist/elements/styles.css'

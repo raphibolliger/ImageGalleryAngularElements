@@ -9,9 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prodbuild": "ng build --aot=true --prod=true",
-    "generate:api": "ng-swagger-gen -i http://localhost:5000/swagger/v1/swagger.json -o src/app/core/api",
-    "build:elements:stag": "ng build -c staging --output-hashing none && node elements-build.js",
-    "build:elements:prod": "ng build -c production --output-hashing none && node elements-build.js"
+    "build:elements": "ng build --aot=true --prod=true --output-hashing none && node elements-build.js"
   },
   "private": true,
   "dependencies": {
