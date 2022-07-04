@@ -6,10 +6,16 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaneaGalleryComponent } from './planea-gallery/planea-gallery.component';
+import { SprengerGalleryComponent } from './sprenger-gallery/sprenger-gallery.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 @NgModule({
   declarations: [
-    PhotoGalleryComponent
+    PhotoGalleryComponent,
+    PlaneaGalleryComponent,
+    SprengerGalleryComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,12 +28,11 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppModule {
 
   constructor(private injector: Injector) {
-    // register gallery component
-    const galleryElement = createCustomElement(PhotoGalleryComponent, { injector: this.injector });
-    customElements.define('app-image-gallery', galleryElement);
+    // register planea gallery component
+    const planeaGalleryElement = createCustomElement(PlaneaGalleryComponent, { injector: this.injector });
+    customElements.define('planea-gallery', planeaGalleryElement);
   }
 
-  ngDoBootstrap() {
-  }
+  ngDoBootstrap() {}
 
 }

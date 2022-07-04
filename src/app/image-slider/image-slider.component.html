@@ -1,0 +1,38 @@
+<div class="slider">
+  <div class="slider-wrapper">
+    <div class="slider-controls">
+      <div (click)="close()" class="item ig-close">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </div>
+      <div (click)="previous()" class="item prev">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </div>
+      <div (click)="next()" class="item next">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </div>
+    </div>
+
+    <div class="image-wrapper">
+      <div class="image-loader" *ngIf="imageLoading">
+        <fa-icon [icon]="faSpinner" size="xl" [spin]="true"></fa-icon>
+      </div>
+      <img
+        [src]="activeImage.imageUrl"
+        [ngClass]="{ loading: imageLoading }"
+        [alt]="activeImage.altText"
+        (load)="onImageLoaded()"
+      />
+    </div>
+  </div>
+
+  <div #thumbslider class="thubnails">
+    <img
+      #thumbnail
+      id="thumbnail-{{ image.id }}"
+      *ngFor="let image of images"
+      [src]="image.thumbnailUrl"
+      (click)="select(image)"
+      [ngClass]="{ active: activeImage.id === image.id }"
+    />
+  </div>
+</div>

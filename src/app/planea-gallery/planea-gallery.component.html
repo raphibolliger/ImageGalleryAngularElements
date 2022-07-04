@@ -1,0 +1,14 @@
+<div class="planea-gallery">
+  <img
+    *ngFor="let image of images"
+    [src]="image.thumbnailUrl"
+    [alt]="image.altText"
+    (click)="showSlider = !showSlider"
+  />
+</div>
+
+<app-image-slider
+  *ngIf="showSlider"
+  [images]="images"
+  (onClose)="showSlider = false"
+></app-image-slider>

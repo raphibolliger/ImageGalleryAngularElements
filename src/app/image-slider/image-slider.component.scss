@@ -1,0 +1,138 @@
+div.slider {
+
+    position: fixed !important;
+    z-index: 15000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    user-select: none;
+  
+    .slider-wrapper {
+      position: absolute;
+      background-color: #181818;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 11em;
+  
+      .slider-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: 3em;
+  
+        .item {
+          display: flex;
+          transition: all 0.4s;
+          cursor: pointer;
+  
+          fa-icon {
+            padding: 1em;
+          }
+        }
+  
+        .item:hover {
+          color: #208AE8;
+          transition: all 0.4s;
+        }
+  
+        .ig-close {
+          right: 0;
+          position: absolute;
+        }
+  
+        .prev {
+          align-items: center;
+          width: 20%;
+        }
+  
+        .next {
+          justify-content: flex-end;
+          align-items: center;
+          width: 20%;
+          text-align: right;
+        }
+  
+      }
+  
+      .image-wrapper {
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+  
+        .image-loader {
+          font-size: 3em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+  
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+  
+        img.loading {
+          visibility: hidden;
+        }
+  
+      }
+  
+    }
+  
+    .thubnails {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 7em;
+      display: flex;
+      overflow: hidden;
+      background-color: black;
+      padding: 2em 1em;
+  
+      img {
+        border: 2px solid #ffffff;
+        margin-left: .25em;
+        margin-right: .25em;
+        cursor: pointer;
+        max-height: 100%;
+        transition: all 0.3s;
+      }
+  
+      img.active {
+        margin-left: 1em;
+        margin-right: 1em;
+        border: 2px solid #ffff00;
+        transform: scale(1.1);
+        transition: all 0.3s;
+      }
+  
+    }
+  
+    .thubnails::before {
+      padding-left: 100%;
+      content: " ";
+    }
+  
+    .thubnails::after {
+      padding-right: 100%;
+      content: " ";
+    }
+  
+  }
