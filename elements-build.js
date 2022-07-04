@@ -3,10 +3,11 @@ const concat = require('concat');
 
 (async function build() {
   const files = [
-    './dist/AlphaVideoFrontendComponents/runtime-es5.js',
-    './dist/AlphaVideoFrontendComponents/polyfills-es5.js',
+    './dist/AlphaVideoFrontendComponents/vendor.js',
+    './dist/AlphaVideoFrontendComponents/runtime.js',
+    './dist/AlphaVideoFrontendComponents/polyfills.js',
     './dist/AlphaVideoFrontendComponents/scripts.js',
-    './dist/AlphaVideoFrontendComponents/main-es5.js'
+    './dist/AlphaVideoFrontendComponents/main.js'
   ];
 
   await fs.ensureDir('./dist/elements');

@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prodbuild": "ng build --aot=true --configuration production=true",
-    "build:elements": "ng build --aot=true --configuration production=true --output-hashing none && node elements-build.js"
+    "build:elements": "ng build --aot=true --output-hashing none && node elements-build.js"
   },
   "private": true,
   "dependencies": {
